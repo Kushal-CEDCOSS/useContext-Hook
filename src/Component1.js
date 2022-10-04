@@ -1,20 +1,12 @@
-import React, { memo, useCallback, useState } from 'react'
-import Component2 from './Component2';
+import React, { memo } from 'react'
 
-const Component1 = (props) => {
-    const [Num2, setNum2] = useState("");
-
-    const display2 = useCallback(() => {
-        return Num2;
-    }, [])
+const Component1 = ({fun}) => {
+    
   return (
-    <div>
-    {console.log("Component 1")}
-    {props.fun()}
-    <br/>
-
-    <input type="text" onChange={e => setNum2(e.target.value)} />
-    <Component2 fun2={display2}/>
+    <div className="App">
+        {console.log("Component 1")}
+        <input type="text" onChange={e => fun(e.target.value)} />
+        <br/>
     </div>
   )
 }

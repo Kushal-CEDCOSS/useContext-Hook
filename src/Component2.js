@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-const Component2 = (props) => {
+const Component2 = ({returnVal, fun}) => {
   return (
     <div>
-        {props.fun2()}
-        <br/>
         {console.log("Component 2")}
+        Value from Component 1 is {returnVal}
+        <br/>
+        <input type="text" onChange={e => fun(e.target.value)} />
+        <br/>
     </div>
   )
 }
 
-export default Component2
+export default memo(Component2)
